@@ -1,6 +1,8 @@
 #environment
 import turtle
 import random
+from playsound import playsound
+
 
 w = 500
 h = 500
@@ -124,7 +126,9 @@ screen.onkey(go_up, "Up")
 screen.onkey(go_right, "Right")
 screen.onkey(go_down, "Down")
 screen.onkey(go_left, "Left")
+playsound("D:/ASHU/codes/PYTHON/projects/MakeMeMove.mp3")
 
 reset()
 turtle.done()
+
 
