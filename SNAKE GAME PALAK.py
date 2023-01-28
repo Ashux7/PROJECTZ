@@ -126,7 +126,7 @@ screen.onkey(go_up, "Up")
 screen.onkey(go_right, "Right")
 screen.onkey(go_down, "Down")
 screen.onkey(go_left, "Left")
-playsound("D:/ASHU/codes/PYTHON/projects/MakeMeMove.mp3")
+playsound("D:\\ASHU\\codes\\PYTHON\\projects\\Make Me Move.mp3")
 
 reset()
 turtle.done()
