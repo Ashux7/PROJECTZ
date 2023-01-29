@@ -1,13 +1,55 @@
+# imports
+import mysql.connector
 from tkinter import *
 from playsound import playsound
-root = Tk()
 
+# mysql
+cnntn = mysql.connector.connect(host='localhost',user='root',password='8318534234')
+print(cnntn)
+crsr = cnntn.cursor()
+crsr.execute("use tkinterdatastorage")
+cnntn.commit()
 
-root.geometry("690x690")
+# window
+win = Tk()
+win.geometry("400x500")
+win.title("Paise Lelo Friends")
+
+# saste functions/commands
+def rickroll():
+    playsound("D:\\ASHU\\codes\\PYTHON\\projects\\RickRoll.mp3")
 def music():
     playsound("D:\\ASHU\\codes\\PYTHON\\projects\\Make Me Move.mp3")
+    
 
-btn = Button(root,text="Click Krde bhai.",borderwidth=10,relief=GROOVE,font=('Algerian 20 italic'),command=music)
-btn.pack()
+# buttons
+btn1 = Button(win,text="CLICK FOR Rs 500000/- !!!",borderwidth=10,relief=GROOVE,font=('Algerian 10 italic'),command=rickroll)
+btn1.pack()
+btn2 = Button(win, text="Gaana sunega??",command=music,borderwidth=10,relief=GROOVE,font=('Algerian 10 italic'))
+btn2.pack()
 
-root.mainloop()
+# image
+img = PhotoImage(file="itachi.png")
+img1 = Label(image=img)
+img1.pack(fill=X)
+
+# form
+username = Label(win,text="Username").place(x=30,y=300)
+password = Label(win,text="Password").place(x=30,y=320)
+user_name = StringVar()  #variable to store data entered.
+user_pass = StringVar()
+user_entry = Entry(win , width=30,textvariable=user_name).place(x=100,y=300)
+pass_entry = Entry(win , width=30,textvariable=user_pass).place(x=100,y=320)
+
+def data_sender():
+    name=user_name.get()
+    passw=user_pass.get()
+    crsr.execute(f"insert into TkinterForm(Username , Password) VALUES('{name}','{passw}')")
+    crsr.execute('select * from TkinterForm')
+    for i in crsr:
+        print(i)
+    cnntn.commit()
+submit = Button(win,text="SUBMIT",command=data_sender).place(x=150,y=350)
+
+
+win.mainloop()
