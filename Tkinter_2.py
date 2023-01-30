@@ -4,7 +4,7 @@ from tkinter import *
 from playsound import playsound
 
 # mysql
-cnntn = mysql.connector.connect(host='localhost',user='root',password='8318534234')
+cnntn = mysql.connector.connect(host='localhost',user='root',password='')
 print(cnntn)
 crsr = cnntn.cursor()
 crsr.execute("use tkinterdatastorage")
