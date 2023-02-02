@@ -4,7 +4,7 @@ from tkinter import *
 from playsound import playsound
 
 # mysql
-cnntn = mysql.connector.connect(host='localhost',user='root',password='')
+cnntn = mysql.connector.connect(host='localhost',user='root',password='8318534234')
 print(cnntn)
 crsr = cnntn.cursor()
 crsr.execute("use tkinterdatastorage")
@@ -17,9 +17,9 @@ win.title("Paise Lelo Friends")
 
 # saste functions/commands
 def rickroll():
-    playsound("D:\\ASHU\\codes\\PYTHON\\projects\\RickRoll.mp3")
+    playsound("D:\\ASHU\\codes\\PYTHON\\GUI\\RickRoll.mp3")
 def music():
-    playsound("D:\\ASHU\\codes\\PYTHON\\projects\\Make Me Move.mp3")
+    playsound("D:\\ASHU\\codes\\PYTHON\\GUI\\Make Me Move.mp3")
     
 
 # buttons
@@ -36,6 +36,7 @@ img1.pack(fill=X)
 # form
 username = Label(win,text="Username").place(x=30,y=300)
 password = Label(win,text="Password").place(x=30,y=320)
+Label(win,text='** Can\'t use [] \' ; {} to create Username or Password. **').place(x=30,y=340)
 user_name = StringVar()  #variable to store data entered.
 user_pass = StringVar()
 user_entry = Entry(win , width=30,textvariable=user_name).place(x=100,y=300)
@@ -49,7 +50,7 @@ def data_sender():
     for i in crsr:
         print(i)
     cnntn.commit()
-submit = Button(win,text="SUBMIT",command=data_sender).place(x=150,y=350)
+submit = Button(win,text="SUBMIT",command=data_sender).place(x=150,y=360)
 
 
 win.mainloop()
