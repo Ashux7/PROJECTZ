@@ -7,8 +7,19 @@ from playsound import playsound
 cnntn = mysql.connector.connect(host='localhost',user='root',password='8318534234')
 print(cnntn)
 crsr = cnntn.cursor()
-crsr.execute("use tkinterdatastorage")
-cnntn.commit()
+crsr.execute("show databases")
+db=[]
+for i in crsr:
+    db.append(i)
+print(db)
+if ('tkinterdatastorage',) not in db:
+    crsr.execute('create database tkinterdatastorage')
+    crsr.execute("use tkinterdatastorage")
+    crsr.execute('create table TkinterForm(USERNAME varchar(50),PASSWORD varchar(50))')
+    cnntn.commit()
+else:
+    crsr.execute("use tkinterdatastorage")
+    cnntn.commit()
 
 # window
 win = Tk()
@@ -40,7 +51,7 @@ Label(win,text='** Can\'t use [] \' ; {} to create Username or Password. **').pl
 user_name = StringVar()  #variable to store data entered.
 user_pass = StringVar()
 user_entry = Entry(win , width=30,textvariable=user_name).place(x=100,y=300)
-pass_entry = Entry(win , width=30,textvariable=user_pass).place(x=100,y=320)
+pass_entry = Entry(win , width=30,textvariable=user_pass,show='*').place(x=100,y=320)
 
 def data_sender():
     name=user_name.get()
