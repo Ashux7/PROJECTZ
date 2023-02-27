@@ -64,4 +64,19 @@ def data_sender():
 submit = Button(win,text="SUBMIT",command=data_sender).place(x=150,y=360)
 
 
+# import matplotlib.pyplot as coord
+
+# x=[1,2,3]
+# y=[1,2,3]
+
+# coord.plot(x,y)
+
+# coord.xlabel('x-axis')
+# coord.ylabel('y-axis')
+
+# coord.title('graph')
+
+# coord.show()
+
+
 win.mainloop()
